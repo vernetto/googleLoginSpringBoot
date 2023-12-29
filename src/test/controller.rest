@@ -1,0 +1,18 @@
+###
+GET http://localhost:8080/ride/getAll
+
+###
+GET http://localhost:8080/city/getAll
+
+###
+POST http://localhost:8080/city/add
+accept: */*
+Content-Type: application/json
+
+{
+  "id": 1,
+  "cityName": "Bern"
+}
+
+###
+

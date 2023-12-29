@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:orders
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 466563001954-61ruqmemt7oupaeu6gofklu3308jthuo.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile,email
+  thymeleaf:
+    cache: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+        tcpAllowOthers: true
+        webPort: 8082
+
+
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS=false
+
+logging:
+  level:
+    org.springframework: ERROR
+    com.example: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+  file:
+    name: orders.log
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+
+
+local:
+  server:
+    port: 8080
+
+
+server:
+  error:
+    include-message: always
+
+security:
+  basic:
+    enabled=false
