@@ -9,4 +9,5 @@ public class UserDTO {
     private String fullName;
     private String telephone;
     private String email;
+    private String pictureUrl;
 }

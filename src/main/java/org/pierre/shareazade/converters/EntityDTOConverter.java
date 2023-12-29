@@ -35,6 +35,10 @@ public class EntityDTOConverter {
         return modelMapper.map(userDTO, UserEntity.class);
     }
 
+    public UserDTO convertUserEntityToDTOs(UserEntity userEntity) {
+        return modelMapper.map(userEntity, UserDTO.class);
+    }
+
     public List<CityDTO> convertCityEntityToDTOList(List<CityEntity> cityEntityList) {
         List<CityDTO> cityEntityDTOList = modelMapper.map(cityEntityList, new TypeToken<List<CityDTO>>() {}.getType());
         return cityEntityDTOList;
