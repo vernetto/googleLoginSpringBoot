@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ride Entries</title>
+</head>
+<body>
+<div th:fragment="rides">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ride Date</th>
+            <th>Ride Time</th>
+            <th>Ride Type</th>
+            <th>Comment</th>
+            <th>User</th>
+            <th>From City</th>
+            <th>To City</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ride : ${rides}">
+            <td th:text="${ride.id}"></td>
+            <td th:text="${#dates.format(ride.rideDate, 'dd-MM-yyyy')}"></td>
+            <td th:text="${ride.rideTime}"></td>
+            <td th:text="${ride.rideType}"></td>
+            <td th:text="${ride.rideComment}"></td>
+            <td th:text="${ride.user}"></td>
+            <td th:text="${ride.fromCity}"></td>
+            <td th:text="${ride.toCity}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -27,7 +27,6 @@ import java.util.List;
 @Slf4j
 public class ShareController {
 
-
     private final RideEntryService rideEntryService;
     private final CityService cityService;
     private final UserService userService;
