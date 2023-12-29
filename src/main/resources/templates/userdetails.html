@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- user-details.html -->
+<div th:fragment="userDetails(user)">
+    <div class="user-profile">
+        <img th:src="@{${user.picture}}" alt="User Image" class="user-image"/>
+        <h3 th:text="${user.name}">User Name</h3>
+        <p th:text="${user.email}">User Email</p>
+        <!-- Add more user details as required -->
+    </div>
+</div>

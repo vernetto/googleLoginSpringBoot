@@ -5,7 +5,16 @@
 </head>
 <body>
 <div th:fragment="rides">
-    <table>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+    <table id="myTable">
         <thead>
         <tr>
             <th>ID</th>
@@ -25,9 +34,9 @@
             <td th:text="${ride.rideTime}"></td>
             <td th:text="${ride.rideType}"></td>
             <td th:text="${ride.rideComment}"></td>
-            <td th:text="${ride.user}"></td>
-            <td th:text="${ride.fromCity}"></td>
-            <td th:text="${ride.toCity}"></td>
+            <td th:text="${ride.user.fullName}"></td>
+            <td th:text="${ride.fromCity.cityName}"></td>
+            <td th:text="${ride.toCity.cityName}"></td>
         </tr>
         </tbody>
     </table>

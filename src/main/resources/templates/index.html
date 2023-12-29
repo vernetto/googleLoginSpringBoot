@@ -12,6 +12,12 @@
     <p>Email: <span th:text="${user['email']}"></span></p>
     <!-- Add more fields as needed -->
 </div>
+
+<div>
+    <!-- other content -->
+    <div th:replace="userdetails.html :: userDetails(${user})"></div>
+    <!-- more content -->
+</div>
 <footer th:insert="rides.html :: rides"> </footer>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.pierre.shareazade.services.RideEntryService;
 import org.pierre.shareazade.services.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,7 @@ public class LoginController {
     private final EntityDTOConverter entityDTOConverter;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, OAuth2AuthenticationToken authenticationToken) {
         Authentication authenticationFromContext = SecurityContextHolder.getContext().getAuthentication();
         if (authenticationFromContext != null && authenticationFromContext.getPrincipal() instanceof OAuth2User) {
             OAuth2User oAuth2User = (OAuth2User) authenticationFromContext.getPrincipal();
