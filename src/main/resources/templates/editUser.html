@@ -7,21 +7,22 @@
 <body>
 <h1>Edit User Details</h1>
 <form th:action="@{/saveUserDetails}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}" />
     <div>
-        <label for="pictureUrl">Picture URL:</label>
-        <input type="text" id="pictureUrl" th:field="*{pictureUrl}" />
+        <label for="picture">Picture URL (read only):</label>
+        <input type="text" id="picture" th:field="*{picture}" readonly="readonly"  />
     </div>
     <div>
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" th:field="*{fullName}" />
+        <label for="name">Full Name (read only):</label>
+        <input type="text" id="name" th:field="*{name}" readonly="readonly" />
     </div>
     <div>
         <label for="telephone">Telephone:</label>
         <input type="tel" id="telephone" th:field="*{telephone}" />
     </div>
     <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" th:field="*{email}" disabled />
+        <label for="email">Email (read only):</label>
+        <input type="email" id="email" th:field="*{email}" readonly="readonly" />
     </div>
     <div>
         <button type="submit">Save Changes</button>

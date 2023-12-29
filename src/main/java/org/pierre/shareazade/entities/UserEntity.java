@@ -12,7 +12,7 @@ public class UserEntity {
     private Long id;
 
     @Column(length = 100, nullable = false)
-    private String fullName;
+    private String name;
 
     @Column(length = 20, nullable = true)
     private String telephone;
@@ -21,6 +21,6 @@ public class UserEntity {
     private String email;
 
     @Column(length = 150, nullable = true)
-    private String pictureUrl;
+    private String picture;
 
 }

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.pierre.shareazade.converters.EntityDTOConverter;
 import org.pierre.shareazade.dtos.RideEntryDTO;
-import org.pierre.shareazade.services.CityService;
 import org.pierre.shareazade.services.RideEntryService;
 import org.pierre.shareazade.services.UserService;
 import org.springframework.security.core.Authentication;
@@ -25,6 +24,7 @@ import java.util.List;
 public class LoginController {
     private final RideEntryService rideEntryService;
     private final EntityDTOConverter entityDTOConverter;
+    private final UserService userService;
 
     @GetMapping("/")
     public String index(Model model, OAuth2AuthenticationToken authenticationToken) {
@@ -36,6 +36,7 @@ public class LoginController {
         if (authenticationFromContext != null) {
             OAuth2User oAuth2User =  (OAuth2User)authenticationFromContext.getPrincipal();
             model.addAttribute("user", oAuth2User.getAttributes());
+            userService.createNewUserWhenNeeded(oAuth2User);
         }
         addRides(model);
         return "index";

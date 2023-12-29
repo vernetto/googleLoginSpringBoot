@@ -28,15 +28,17 @@ public class UserController {
     public String showEditForm(@RequestParam("id") Long userId, Model model) {
         log.info("userId: {}", userId);
         // Retrieve the currently authenticated user's details
+        // TODO retrieve the current user
         UserEntity userEntity = userService.getCurrentUserDetails();
         model.addAttribute("user", entityDTOConverter.convertUserEntityToDTOs(userEntity));
         return "editUser";
     }
 
     @PostMapping("/saveUserDetails")
-    public String saveUserDetails(@ModelAttribute UserDTO userDTO) {
-        // Save the updated user details
+    public String saveUserDetails(@ModelAttribute UserDTO userDTO, Model model) {
+        // TODO fail if not same as logged in user
+        log.info("userDTO: {}", userDTO);
         userService.updateUserDetails(userDTO);
-        return "redirect:/editUser?success";
+        return "redirect:/";
     }
 }

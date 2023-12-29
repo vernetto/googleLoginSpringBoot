@@ -34,13 +34,14 @@ public class DataLoader implements ApplicationRunner {
 
         UserEntity user1 = new UserEntity();
         user1.setTelephone("0762124321");
-        user1.setEmail("publicpierre@gmail.com");
-        user1.setFullName("Pierluigi Vernetto");
+        user1.setEmail("publicpierre1@gmail.com");
+        user1.setName("Pierluigi Vernetto1");
+        user1.setPicture("https://lh3.googleusercontent.com/a/ACg8ocJUs8eXkYihHmMNwh2MvWHAMOGdIKiuzQnXpZOvcFsVVRo=s96-c");
         userRepository.save(user1);
         UserEntity user2 = new UserEntity();
         user2.setTelephone("333456789");
-        user2.setEmail("vernettop@gmail.com");
-        user2.setFullName("Igiulreip Ottenrev");
+        user2.setEmail("vernettop1@gmail.com");
+        user2.setName("Igiulreip Ottenrev1");
         userRepository.save(user2);
 
         RideEntryEntity rideEntry1 = new RideEntryEntity();
