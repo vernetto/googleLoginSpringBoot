@@ -22,12 +22,11 @@ spring:
       settings:
         web-allow-others: true
         tcpAllowOthers: true
-        webPort: 8082
 
 
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
+    show-sql: false
 
   mvc:
     pathmatch:
@@ -41,7 +40,7 @@ jackson:
 logging:
   level:
     org.springframework: ERROR
-    com.example: DEBUG
+    org.pierre: DEBUG
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
     file: "%d %p %c{1.} [%t] %m%n"

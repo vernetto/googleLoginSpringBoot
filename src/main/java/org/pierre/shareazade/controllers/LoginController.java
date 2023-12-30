@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.pierre.shareazade.converters.EntityDTOConverter;
 import org.pierre.shareazade.dtos.RideEntryDTO;
+import org.pierre.shareazade.entities.UserEntity;
 import org.pierre.shareazade.services.RideEntryService;
 import org.pierre.shareazade.services.UserService;
 import org.springframework.security.core.Authentication;
@@ -27,16 +28,13 @@ public class LoginController {
     private final UserService userService;
 
     @GetMapping("/")
-    public String index(Model model, OAuth2AuthenticationToken authenticationToken) {
+    public String index(Model model) {
         Authentication authenticationFromContext = SecurityContextHolder.getContext().getAuthentication();
         if (authenticationFromContext != null && authenticationFromContext.getPrincipal() instanceof OAuth2User) {
             OAuth2User oAuth2User = (OAuth2User) authenticationFromContext.getPrincipal();
             log.info("user from context " + oAuth2User.getAttributes());
-        }
-        if (authenticationFromContext != null) {
-            OAuth2User oAuth2User =  (OAuth2User)authenticationFromContext.getPrincipal();
-            model.addAttribute("user", oAuth2User.getAttributes());
-            userService.createNewUserWhenNeeded(oAuth2User);
+            UserEntity userEntity = userService.createNewUserWhenNeeded(oAuth2User);
+            model.addAttribute("user", userEntity);
         }
         addRides(model);
         return "index";

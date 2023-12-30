@@ -9,4 +9,5 @@
         <p th:text="${user.email}">User Email</p>
         <!-- Add more user details as required -->
     </div>
+    <a th:href="@{/editUser(id=${user.id})}">Edit User</a>
 </div>
