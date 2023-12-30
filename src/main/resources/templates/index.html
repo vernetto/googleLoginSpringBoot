@@ -11,7 +11,7 @@
 
 <div>
     <!-- other content -->
-    <div th:replace="userDetails.html :: userDetails(${user})"></div>
+    <div th:replace="fragments/userDetails.html :: userDetails(${user})"></div>
     <!-- more content -->
 </div>
 <footer th:insert="rides.html :: rides"> </footer>

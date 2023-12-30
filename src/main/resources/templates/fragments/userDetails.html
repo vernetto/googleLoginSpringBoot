@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<style>
-.user-profile {
-display: flex;
-align-items: center;
-}
 
-.inline-item {
-margin-right: 10px; /* Adjust spacing as needed */
-}
-</style>
-
-<!-- user-details.html -->
 <div th:fragment="userDetails(user)">
     <div class="user-profile">
         <img th:src="@{${user.picture}}" alt="User Image" class="inline-item"/>
         <div th:text="${user.name}" class="inline-item">User Name</div>
         <div th:text="${user.email}" class="inline-item">User Email</div>
-        <!-- Add more user details as required -->
+        <a th:href="@{/editUser(id=${user.id})}" class="inline-item">Edit User</a>
     </div>
-    <a th:href="@{/editUser(id=${user.id})}">Edit User</a>
+
 </div>
