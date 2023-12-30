@@ -1,0 +1,8 @@
+.user-profile {
+display: flex;
+align-items: center;
+}
+
+.inline-item {
+margin-right: 10px; /* Adjust spacing as needed */
+}
