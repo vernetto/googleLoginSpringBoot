@@ -2,7 +2,9 @@ package org.pierre.shareazade.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.pierre.shareazade.constants.RideType;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -15,7 +17,7 @@ public class RideEntryEntity {
     private Long id;
 
     @Column(nullable = false)
-    private Date rideDate;
+    private LocalDate rideDate;
 
     @Column(length = 5, nullable = false)
     private String rideTime;
@@ -24,7 +26,7 @@ public class RideEntryEntity {
     private RideType rideType;
 
     @Column(length = 100, nullable = true)
-    private String shareComment;
+    private String rideComment;
 
     @ManyToOne
     private UserEntity userEntity;

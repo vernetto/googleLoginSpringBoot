@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
 
-        <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="menu-items">
         <ul>
-            <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/addRide}">Add ride</a></li>
-            <!-- Add other menu items here -->
+            <li><a th:href="@{/}" class="inline-item">Home</a></li>
+            <li><a th:href="@{/addRide}" class="inline-item">Add ride</a></li>
+            <li><a th:href="@{/editUser(id=${user.id})}" class="inline-item">Edit User</a></li>
         </ul>
     </nav>
 </header>
 <h1>Welcome to Shareazade!</h1>
 
-<div>
-    <!-- other content -->
-    <div th:replace="fragments/userDetails.html :: userDetails(${user})"></div>
-    <!-- more content -->
-</div>
-<footer th:insert="rides.html :: rides"> </footer>
+
+<footer th:insert="rides.html :: rides"></footer>
 </body>
 </html>

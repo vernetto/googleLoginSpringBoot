@@ -12,6 +12,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -45,7 +46,7 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user2);
 
         RideEntryEntity rideEntry1 = new RideEntryEntity();
-        rideEntry1.setRideDate(new Date());
+        rideEntry1.setRideDate(LocalDate.now());
         rideEntry1.setRideTime("05");
         rideEntry1.setRideType(RideType.REQUEST);
         rideEntry1.setFromCity(cityEntity1);
@@ -54,7 +55,7 @@ public class DataLoader implements ApplicationRunner {
         rideEntryRepository.save(rideEntry1);
 
         RideEntryEntity rideEntry2 = new RideEntryEntity();
-        rideEntry2.setRideDate(new Date());
+        rideEntry2.setRideDate(LocalDate.now());
         rideEntry2.setRideTime("07");
         rideEntry2.setRideType(RideType.OFFER);
         rideEntry2.setFromCity(cityEntity3);

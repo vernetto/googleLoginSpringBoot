@@ -16,4 +16,8 @@ public class RideEntryService {
         return rideEntryRepository.findAll();
     }
 
+
+    public void createRide(RideEntryEntity rideEntryEntity) {
+        rideEntryRepository.save(rideEntryEntity);
+    }
 }

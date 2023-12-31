@@ -7,6 +7,7 @@ import org.pierre.shareazade.repositories.CityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -33,4 +34,11 @@ public class CityService {
         return cityRepository.findAll();
     }
 
+    public List<String> findAllAsStringList() {
+        return cityRepository.findAll().stream().map(CityEntity::getCityName).collect(Collectors.toList());
+    }
+
+    public Optional<CityEntity> findById(Long id) {
+        return cityRepository.findById(id);
+    }
 }

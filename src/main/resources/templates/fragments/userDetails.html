@@ -7,7 +7,5 @@
         <img th:src="@{${user.picture}}" alt="User Image" class="inline-item"/>
         <div th:text="${user.name}" class="inline-item">User Name</div>
         <div th:text="${user.email}" class="inline-item">User Email</div>
-        <a th:href="@{/editUser(id=${user.id})}" class="inline-item">Edit User</a>
     </div>
-
 </div>

@@ -16,4 +16,43 @@
 </header>
 
 Add Ride
+
+<form action="#" th:action="@{/addRidePost}" th:object="${ride}" method="post">
+    <div>
+        <label for="rideDate">Ride Date:</label>
+        <input type="date" id="rideDate" th:field="*{rideDate}" />
+    </div>
+    <div>
+        <label for="rideTime">Ride Time:</label>
+        <input type="time" id="rideTime" th:field="*{rideTime}" />
+    </div>
+    <div>
+        <label>Ride Type:</label>
+        <input type="radio" th:field="*{rideType}" value="REQUEST" id="request" />
+        <label for="request">Request</label>
+        <input type="radio" th:field="*{rideType}" value="OFFER" id="offer" />
+        <label for="offer">Offer</label>
+    </div>
+    <div>
+        <label for="rideComment">Comment:</label>
+        <textarea id="rideComment" th:field="*{rideComment}"></textarea>
+    </div>
+    <div>
+        <label for="fromCity">From City:</label>
+        <select id="fromCity" th:field="*{fromCity}">
+            <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.cityName}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="toCity">To City:</label>
+        <select id="toCity" th:field="*{toCity}">
+            <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.cityName}"></option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Add Ride</button>
+    </div>
+</form>
+
 </body>
+</html>

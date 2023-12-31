@@ -22,6 +22,9 @@
         <input type="text" id="picture" th:field="*{picture}" readonly="readonly"  />
     </div>
     <div>
+        <img th:src="@{${user.picture}}" alt="User Image"/>
+    </div>
+    <div>
         <label for="name">Full Name (read only):</label>
         <input type="text" id="name" th:field="*{name}" readonly="readonly" />
     </div>
@@ -34,5 +37,10 @@
         <input type="email" id="email" th:field="*{email}" readonly="readonly" />
     </div>
 </form>
+<div>
+    <!-- other content -->
+    <div th:replace="fragments/userDetails.html :: userDetails(${user})"></div>
+    <!-- more content -->
+</div>
 </body>
 </html>

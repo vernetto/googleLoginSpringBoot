@@ -78,9 +78,14 @@ public class UserService {
         if (authenticationFromContext != null && authenticationFromContext.getPrincipal() instanceof OAuth2User) {
             OAuth2User oAuth2User = (OAuth2User) authenticationFromContext.getPrincipal();
             log.info("user from context " + oAuth2User.getAttributes());
-            userEntity = oAuth2UserToUserEntity(oAuth2User);
+            UserEntity userEntityFromOauth2 = oAuth2UserToUserEntity(oAuth2User);
+            userEntity = this.getUserFromEmail(userEntityFromOauth2.getEmail());
         }
         return userEntity;
+    }
+
+    public UserEntity getUserFromEmail(String email) {
+        return userRepository.findByEmail(email).stream().findFirst().get();
     }
 
 }
