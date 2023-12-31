@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.pierre.shareazade.converters.EntityDTOConverter;
 import org.pierre.shareazade.dtos.RideEntryDTO;
+import org.pierre.shareazade.entities.RideEntryEntity;
 import org.pierre.shareazade.entities.UserEntity;
 import org.pierre.shareazade.services.RideEntryService;
 import org.pierre.shareazade.services.UserService;
@@ -41,7 +42,7 @@ public class LoginController {
     }
 
     private void addRides(Model model) {
-        List<RideEntryDTO> rides = entityDTOConverter.convertRideEntryEntityToDTOList(rideEntryService.findAll());
+        List<RideEntryEntity> rides = rideEntryService.findAll();
         model.addAttribute("rides", rides);
     }
 

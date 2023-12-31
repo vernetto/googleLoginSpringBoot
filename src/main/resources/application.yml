@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:orders
+    url: jdbc:h2:file:~/shareazadedb;DB_CLOSE_ON_EXIT=FALSE;FILE_LOCK=SOCKET
     username: sa
     password: password
     driverClassName: org.h2.Driver
@@ -27,6 +27,8 @@ spring:
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
     show-sql: false
+    hibernate:
+      ddl-auto: update
 
   mvc:
     pathmatch:

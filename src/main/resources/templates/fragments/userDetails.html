@@ -4,8 +4,9 @@
 
 <div th:fragment="userDetails(user)">
     <div class="user-profile">
-        <img th:src="@{${user.picture}}" alt="User Image" class="inline-item"/>
+        <img th:src="@{${user.picture}}" alt="User Image" class="inline-item responsive-image"/>
         <div th:text="${user.name}" class="inline-item">User Name</div>
+        <div th:text="${user.telephone}" class="inline-item">User Name</div>
         <div th:text="${user.email}" class="inline-item">User Email</div>
     </div>
 </div>

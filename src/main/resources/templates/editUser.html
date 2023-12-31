@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit User Details</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
 <header>
@@ -15,17 +16,23 @@
 </header>
 <h1>Edit User Details</h1>
 <form th:action="@{/saveUserDetails}" th:object="${user}" method="post">
+    <script>
+        function updateImage() {
+            var imageUrl = document.getElementById('picture').value;
+            document.getElementById('userImage').src = imageUrl;
+        }
+    </script>
     <input type="hidden" th:field="*{id}" />
     <div>
-        <label for="picture">Picture URL (read only):</label>
-        <input type="text" id="picture" th:field="*{picture}" readonly="readonly"  />
+        <label for="picture">Picture URL:</label>
+        <input type="text" id="picture" th:field="*{picture}" oninput="updateImage()" />
     </div>
     <div>
-        <img th:src="@{${user.picture}}" alt="User Image"/>
+        <img id="userImage" th:src="@{${user.picture}}" alt="User Image" class="responsive-image"/>
     </div>
     <div>
-        <label for="name">Full Name (read only):</label>
-        <input type="text" id="name" th:field="*{name}" readonly="readonly" />
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
     </div>
     <div>
         <label for="telephone">Telephone:</label>

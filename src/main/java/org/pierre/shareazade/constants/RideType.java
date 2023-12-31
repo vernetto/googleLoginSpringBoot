@@ -1,5 +1,5 @@
 package org.pierre.shareazade.constants;
 
 public enum RideType {
-    REQUEST, OFFER
+    I_AM_DRIVER, I_AM_PASSENGER
 }

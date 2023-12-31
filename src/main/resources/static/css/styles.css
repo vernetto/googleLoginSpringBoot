@@ -12,3 +12,11 @@ align-items: center;
 .inline-item {
 margin-right: 10px; /* Adjust spacing as needed */
 }
+
+.responsive-image {
+        max-width: 200px;
+        max-height: 200px;
+        height: auto;
+        width: auto;
+    }
+

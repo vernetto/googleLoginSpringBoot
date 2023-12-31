@@ -30,11 +30,11 @@
         <tbody>
         <tr th:each="ride : ${rides}">
             <td th:text="${ride.id}"></td>
-            <td th:text="${#dates.format(ride.rideDate, 'dd-MM-yyyy')}"></td>
+            <td th:text="${ride.formattedDate}"></td>
             <td th:text="${ride.rideTime}"></td>
             <td th:text="${ride.rideType}"></td>
             <td th:text="${ride.rideComment}"></td>
-            <td><a th:href="@{/viewUser(id=${ride.user.id})}"><span th:text="${ride.user.name}">username not found</span></a></td>
+            <td><a th:href="@{/viewUser(id=${ride.userEntity.id})}"><span th:text="${ride.userEntity.name}">username not found</span></a></td>
             <td th:text="${ride.fromCity.cityName}"></td>
             <td th:text="${ride.toCity.cityName}"></td>
         </tr>
