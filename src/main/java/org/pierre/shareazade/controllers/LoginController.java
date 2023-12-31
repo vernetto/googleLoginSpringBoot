@@ -42,7 +42,7 @@ public class LoginController {
     }
 
     private void addRides(Model model) {
-        List<RideEntryEntity> rides = rideEntryService.findAll();
+        List<RideEntryEntity> rides = rideEntryService.findAllFutureRides();
         model.addAttribute("rides", rides);
     }
 

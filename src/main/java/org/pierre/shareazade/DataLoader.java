@@ -9,10 +9,12 @@ import org.pierre.shareazade.entities.UserEntity;
 import org.pierre.shareazade.repositories.RideEntryRepository;
 import org.pierre.shareazade.services.CityService;
 import org.pierre.shareazade.services.UserService;
+import org.pierre.shareazade.utils.DateUtils;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -50,7 +52,7 @@ public class DataLoader implements ApplicationRunner {
         userService.createUser(user2);
 
         RideEntryEntity rideEntry1 = new RideEntryEntity();
-        rideEntry1.setRideDate(new Date());
+        rideEntry1.setRideDate(DateUtils.getYesterdayDate());
         rideEntry1.setRideTime("05");
         rideEntry1.setRideType(RideType.I_AM_PASSENGER);
         rideEntry1.setFromCity(cityEntity1);
@@ -59,7 +61,7 @@ public class DataLoader implements ApplicationRunner {
         rideEntryRepository.save(rideEntry1);
 
         RideEntryEntity rideEntry2 = new RideEntryEntity();
-        rideEntry2.setRideDate(new Date());
+        rideEntry2.setRideDate(DateUtils.getTomorrowDate());
         rideEntry2.setRideTime("07");
         rideEntry2.setRideType(RideType.I_AM_DRIVER);
         rideEntry2.setFromCity(cityEntity3);

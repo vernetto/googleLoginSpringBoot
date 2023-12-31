@@ -25,4 +25,8 @@ public class RideEntryService {
     public Optional<RideEntryEntity> findById(Long rideId) {
         return rideEntryRepository.findById(rideId);
     }
+
+    public List<RideEntryEntity> findAllFutureRides() {
+        return rideEntryRepository.findAllFutureRides();
+    }
 }
