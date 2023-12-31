@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ride details</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<header>
+    <nav class="menu-items">
+        <ul>
+            <li><a th:href="@{/}" class="inline-item">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<h1>Ride details:</h1>
+<div>
+    <div th:replace="fragments/rideDetails.html :: rideDetails(${ride})"></div>
+</div>
+
+<div>
+    <div th:replace="fragments/userDetails.html :: userDetails(${ride.userEntity})"></div>
+</div>
+</body>
+</html>
+

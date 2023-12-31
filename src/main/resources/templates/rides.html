@@ -29,7 +29,7 @@
         </thead>
         <tbody>
         <tr th:each="ride : ${rides}">
-            <td th:text="${ride.id}"></td>
+            <td><a th:href="@{/showRideDetails(id=${ride.id})}"><span th:text="${ride.id}"></span></a></td>
             <td th:text="${ride.formattedDate}"></td>
             <td th:text="${ride.rideTime}"></td>
             <td th:text="${ride.rideType}"></td>

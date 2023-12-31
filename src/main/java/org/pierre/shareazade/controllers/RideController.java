@@ -8,10 +8,7 @@ import org.pierre.shareazade.services.RideEntryService;
 import org.pierre.shareazade.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @CrossOrigin
@@ -38,4 +35,10 @@ public class RideController {
         return new ModelAndView("redirect:/"); // or another appropriate view
     }
 
+    @GetMapping("/showRideDetails")
+    public String showRideDetails(@RequestParam("id") Long rideId, Model model) {
+        RideEntryEntity rideEntryEntity = rideEntryService.findById(rideId).get();
+        model.addAttribute("ride", rideEntryEntity);
+        return "showRideDetails";
+    }
 }

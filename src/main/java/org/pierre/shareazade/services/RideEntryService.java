@@ -6,6 +6,7 @@ import org.pierre.shareazade.repositories.RideEntryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -19,5 +20,9 @@ public class RideEntryService {
 
     public void createRide(RideEntryEntity rideEntryEntity) {
         rideEntryRepository.save(rideEntryEntity);
+    }
+
+    public Optional<RideEntryEntity> findById(Long rideId) {
+        return rideEntryRepository.findById(rideId);
     }
 }

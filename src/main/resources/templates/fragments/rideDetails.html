@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="rideDetails(ride)">
+    <div class="user-profile">
+        <div><strong>ID </strong><span th:text="${ride.id}" class="inline-item"></span></div>
+        <div><strong>Date </strong><span  th:text="${ride.formattedDate}" class="inline-item"></span></div>
+        <div><strong>Time </strong><span  th:text="${ride.rideTime}" class="inline-item"></span></div>
+        <div><strong>Type </strong><span  th:text="${ride.rideType}" class="inline-item"></span></div>
+        <div><strong>Comment </strong><span  th:text="${ride.rideComment}"></span></div>
+        <div><strong>Name </strong><span  class="inline-item"><a th:href="@{/viewUser(id=${ride.userEntity.id})}"><span th:text="${ride.userEntity.name}">username not found</span></a></span></div>
+        <div><strong>From </strong><span  th:text="${ride.fromCity.cityName}" class="inline-item"></span></div>
+        <div><strong>To </strong><span  th:text="${ride.toCity.cityName}" class="inline-item"></span></div>
+    </div>
+</div>
