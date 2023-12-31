@@ -41,4 +41,8 @@ public class CityService {
     public Optional<CityEntity> findById(Long id) {
         return cityRepository.findById(id);
     }
+
+    public CityEntity getCityByName(String name) {
+        return cityRepository.findByCityName(name);
+    }
 }
