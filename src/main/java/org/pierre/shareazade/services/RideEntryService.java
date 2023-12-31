@@ -29,4 +29,8 @@ public class RideEntryService {
     public List<RideEntryEntity> findAllFutureRides() {
         return rideEntryRepository.findAllFutureRides();
     }
+
+    public void deleteRide(Long rideId) {
+        rideEntryRepository.deleteById(rideId);
+    }
 }

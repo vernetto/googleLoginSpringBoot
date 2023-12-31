@@ -47,10 +47,18 @@ public class RideController {
         return new ModelAndView("redirect:/"); // or another appropriate view
     }
 
+    @PostMapping("/deleteRide")
+    public ModelAndView deleteRide(@RequestParam("rideId") Long rideId, Model model) {
+        rideEntryService.deleteRide(rideId);
+        return new ModelAndView("redirect:/"); // or another appropriate view
+    }
+
+
     @GetMapping("/showRideDetails")
     public String showRideDetails(@RequestParam("id") Long rideId, Model model) {
         RideEntryEntity rideEntryEntity = rideEntryService.findById(rideId).get();
         model.addAttribute("ride", rideEntryEntity);
+        model.addAttribute("canEdit", userService.getCurrentUser().getEmail().equals(rideEntryEntity.getUserEntity().getEmail()));
         return "showRideDetails";
     }
 }

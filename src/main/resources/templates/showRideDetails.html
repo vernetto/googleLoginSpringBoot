@@ -22,6 +22,14 @@
 <div>
     <div th:replace="fragments/userDetails.html :: userDetails(${ride.userEntity})"></div>
 </div>
+
+
+<div th:if="${canEdit}">
+    <form th:action="@{/deleteRide}" th:object="${user}" method="post">
+        <input type="hidden" name="rideId" th:value="${ride.id}" />
+        <button type="submit">Delete Ride</button>
+    </form>
+</div>
 </body>
 </html>
 

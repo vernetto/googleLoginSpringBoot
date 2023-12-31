@@ -39,13 +39,8 @@ public class RideEntryEntity {
     private CityEntity toCity;
 
     public String getFormattedDate() {
-        // Formatter for the "2023-10-21" part
         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
-
-        // Formatter for the "October 21 Friday" part
         SimpleDateFormat formatter2 = new SimpleDateFormat("MMMM dd EEEE");
-
-        // Formatting the date
         String formattedDate = formatter1.format(getRideDate()) + ", " + formatter2.format(getRideDate());
         return formattedDate;
 
