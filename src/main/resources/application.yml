@@ -12,6 +12,7 @@ spring:
             client-id: 466563001954-61ruqmemt7oupaeu6gofklu3308jthuo.apps.googleusercontent.com
             client-secret: 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
             scope: profile,email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/google"
   thymeleaf:
     cache: false
 
@@ -66,3 +67,9 @@ server:
 security:
   basic:
     enabled=false
+
+management:
+  endpoints:
+  web:
+    exposure:
+      include: "*"
