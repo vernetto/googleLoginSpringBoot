@@ -23,22 +23,17 @@ spring:
       settings:
         web-allow-others: true
         tcpAllowOthers: true
-
-
   jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: false
-    hibernate:
-      ddl-auto: update
-
+      database-platform: org.hibernate.dialect.H2Dialect
+      show-sql: false
+      hibernate:
+        ddl-auto: update
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-
 jackson:
-    serialization:
-      FAIL_ON_EMPTY_BEANS=false
+  serialization:
+    FAIL_ON_EMPTY_BEANS: false
 
 logging:
   level:
@@ -64,9 +59,12 @@ server:
   error:
     include-message: always
 
+
 security:
+  headers:
+    frame: false
   basic:
-    enabled=false
+    enabled: false
 
 management:
   endpoints:

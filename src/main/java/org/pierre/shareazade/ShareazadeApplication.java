@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.h2.tools.Server;
 import java.sql.SQLException;
 
-@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+@SpringBootApplication
 public class ShareazadeApplication {
 
     public static void main(String[] args) {
